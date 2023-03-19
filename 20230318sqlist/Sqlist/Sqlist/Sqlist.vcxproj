@@ -130,7 +130,6 @@
     <ClInclude Include="SqList.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c" />
     <ClCompile Include="SqList.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
