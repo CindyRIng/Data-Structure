@@ -23,7 +23,7 @@ Status isFull(SqList L)
 }
 Status insert(SqList* L, int i,ElemType e)
 {
-	if (e<1 || e>L->length - 1 || L->length == MaxSize) return ERR;
+	if (i<1 || i-1>L->length || L->length == MaxSize) return ERR;
 	else
 	{
 		for (int j = L->length; j > i - 1; j--)
@@ -53,6 +53,7 @@ Status getElem(SqList L,int i, ElemType* e)
 {
 	*e = L.data[i - 1];
 }
+
 void  ListTraverse(SqList L)
 {
 	for (int i = 1; i <= L.length; i++)
