@@ -20,6 +20,7 @@ status Ldelete(LinkList L, int i);//删除第i个节点
 status destroy(LinkList L);//销毁链表
 int getLength(LinkList L);//获取链表长度
 void printList(LinkList L);//打印此链表
+status ListInverse(LinkList L);//链表逆置
 
 
 

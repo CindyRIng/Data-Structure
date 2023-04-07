@@ -4,18 +4,40 @@
 
 void main()
 {
+	//初始化链表
 	LinkList L;
-	init(&L);
-	for (int i = 0; i < 10; i++)
+	printf("正在初始化单链表...\n");
+	if (init(&L))
+		printf("初始化成功!\n");
+	else
+		printf("初始化失败!\n");
+	
+	//插入元素
+	printf("开始插入元素:\n");
+	for (int i = 1; i < 10; i++)
 	{
-		insert(L, 0, i);
+		if (insert(L, 0, i))
+			printf("已插入元素%d\n", i);
+		else
+			printf("插入失败\n");
 	}
-	printf("%d\n", getLength(L));
+	//打印链表
 	printList(L);
-	int e;
-	select(L, 5, &e);
-	LNode* t;
-	find(L, 5, &t);
-	printf("\n%d", t->data);
+	//删除元素
+	printf("\n正在删除元素...\n");
+
+	if (Ldelete(L, 2))
+		printf("删除成功!\n");
+	else
+		printf("删除失败!\n");
+
+	printList(L);
+
+	ListInverse(L);
+	printf("\n");
+	printList(L);
+
+	
+	
 
 }

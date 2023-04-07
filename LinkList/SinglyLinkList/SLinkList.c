@@ -80,7 +80,7 @@ status Ldelete(LinkList L, int i)
 	LNode* p = L;//指针头放到头指针
 	for (int j = 1; j < i; j++)
 	{
-		if (p->next = NULL) return ERR;//判断i是否在当前链表中
+		if (p->next == NULL) return ERR;//判断i是否在当前链表中
 		else p = p->next;//将指针定位到i-1处
 	}
 	p->next = p->next->next;
@@ -108,4 +108,32 @@ void printList(LinkList L)
 		printf("%d",p->next->data);
 		p = p->next;
 	}
+}
+/*
+L->a->b->c->d->e
+L->p(a)->q(b)->c->d->e
+L->p(a)  q(b)->c->d->e
+L->p(a)  q(b)->r(c)->d->e
+L->p(a)-<q(b)->r(c)->d->e
+L->q(b)->p(a)  r(c)->d->e
+L->p(b)->a     q(c)->d->e
+L->p(b)->a     q(c)->r(d)->e
+L->q(c)->p(b)->a r(d)->e
+
+*/
+status ListInverse(LinkList L)
+{
+	LNode* p, * q, * r;
+	p = L->next;
+	q = p->next;
+	p->next = NULL;
+	while (q!=NULL)
+	{
+		r = q->next;
+		q->next = p;
+		L->next = q;
+		p = q;
+		q = r;
+	}
+	return OK;
 }
